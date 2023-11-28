@@ -22,7 +22,7 @@ mkdir -p "$SSH_FOLDER"
     echo "Host $IP"
     echo "    HostName $IP"
     echo "    User $USER"
-    echo "    IdentityFile $SSH_FOLDER/mtcazurekey"
+    echo "    IdentityFile $SSH_FOLDER/atfpkey"
 } >> "$SSH_CONFIG_PATH"
 
 echo "SSH config updated for host $IP" >&2
