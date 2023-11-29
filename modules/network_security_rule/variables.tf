@@ -1,46 +1,16 @@
-variable "rule_name" {
-  description = "Name of the network security rule"
-  type        = string
-}
-
-variable "priority" {
-  description = "Priority of the network security rule"
-  type        = number
-}
-
-variable "direction" {
-  description = "Direction of the network security rule (Inbound or Outbound)"
-  type        = string
-}
-
-variable "access" {
-  description = "Specifies whether network traffic is allowed or denied"
-  type        = string
-}
-
-variable "protocol" {
-  description = "Network protocol this rule applies to"
-  type        = string
-}
-
-variable "source_port_range" {
-  description = "Source port or range"
-  type        = string
-}
-
-variable "destination_port_range" {
-  description = "Destination port or range"
-  type        = string
-}
-
-variable "source_address_prefix" {
-  description = "Source address prefix. CIDR or source IP range."
-  type        = string
-}
-
-variable "destination_address_prefix" {
-  description = "Destination address prefix. CIDR or destination IP range."
-  type        = string
+variable "rules" {
+  type = list(object({
+    rule_name                   = string
+    priority                    = number
+    direction                   = string
+    access                      = string
+    protocol                    = string
+    source_port_range           = string
+    destination_port_range      = string
+    source_address_prefix       = string
+    destination_address_prefix  = string
+  }))
+  description = "List of network security rules"
 }
 
 variable "resource_group_name" {

@@ -1,23 +1,34 @@
 variable "host_os" {
-  type        = string
-  default     = "linux"
   description = "Host operating system"
+  type        = string
 }
 
 variable "resource_group_name" {
-  type        = string
-  default     = "Azure-tf-project-rg"
   description = "Resource group name for all module resources."
+  type        = string
 }
 
 variable "region" {
-  type        = string
-  default     = "eastus"
   description = "Region for all module resources."
+  type        = string
 }
 
 variable "vm_username" {
-  type        = string
-  default     = "adminuser"
   description = "The Username of the VM."
+  type        = string
+}
+
+variable "security_rules" {
+  description = "List of network security rules"
+  type = list(object({
+    rule_name                   = string
+    priority                    = number
+    direction                   = string
+    access                      = string
+    protocol                    = string
+    source_port_range           = string
+    destination_port_range      = string
+    source_address_prefix       = string
+    destination_address_prefix  = string
+  }))
 }
