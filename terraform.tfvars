@@ -6,10 +6,9 @@ region          = "eastus"
 host_os         = "linux"
 vm_username     = "adminuser"
 
-# Security Rules Configuration
-security_rules = [
-  {
-    rule_name                   = "rule1"
+# Security Rules Configuration - MAP
+security_rules = {
+  "rule1" = {
     priority                    = 100
     direction                   = "Inbound"
     access                      = "Deny"
@@ -19,8 +18,7 @@ security_rules = [
     source_address_prefix       = "*"
     destination_address_prefix  = "*"
   },
-  {
-    rule_name                   = "rule2"
+  "rule2" = {
     priority                    = 110
     direction                   = "Inbound"
     access                      = "Allow"
@@ -30,4 +28,4 @@ security_rules = [
     source_address_prefix       = "*"
     destination_address_prefix  = "*"
   }
-]
+}
