@@ -34,7 +34,7 @@ resource "azurerm_linux_virtual_machine" "A-vm-1" {
   custom_data           = filebase64("${path.module}/customdata.tpl")
   admin_ssh_key {
     username = var.vm_username
-    public_key = file("~/.ssh/mtcazurekey.pub")
+    public_key = file("~/.ssh/atfpkey.pub")
   }
   os_disk {
     caching              = "ReadWrite"
