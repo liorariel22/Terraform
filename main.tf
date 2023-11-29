@@ -6,8 +6,4 @@ module "vm-1" {
   vm_username         = var.vm_username
   subnet_id           = azurerm_subnet.A-subnet.id
   depends_on          = [azurerm_resource_group.A-rg]
-
-  lifecycle {
-    create_before_destroy = true
-  }
 }
