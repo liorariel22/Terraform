@@ -11,20 +11,20 @@ security_rules = {
   "rule1" = {
     priority                    = 100
     direction                   = "Inbound"
-    access                      = "Deny"
+    access                      = "Allow"
     protocol                    = "Tcp"
     source_port_range           = "*"
-    destination_port_range      = "80"
+    destination_port_range      = "*"
     source_address_prefix       = "*"
     destination_address_prefix  = "*"
   },
   "rule2" = {
     priority                    = 110
     direction                   = "Inbound"
-    access                      = "Allow"
+    access                      = "Deny"
     protocol                    = "Tcp"
     source_port_range           = "*"
-    destination_port_range      = "22"
+    destination_port_range      = "1234"
     source_address_prefix       = "*"
     destination_address_prefix  = "*"
   }
