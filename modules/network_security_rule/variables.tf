@@ -1,6 +1,6 @@
 variable "rules" {
-  type = list(object({
-    rule_name                   = string
+  description = "Map of network security rules"
+  type = map(object({
     priority                    = number
     direction                   = string
     access                      = string
@@ -10,7 +10,6 @@ variable "rules" {
     source_address_prefix       = string
     destination_address_prefix  = string
   }))
-  description = "List of network security rules"
 }
 
 variable "resource_group_name" {
