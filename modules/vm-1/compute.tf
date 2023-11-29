@@ -46,7 +46,7 @@ resource "azurerm_linux_virtual_machine" "A-vm-1" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
-    lifecycle {
+  lifecycle {
     create_before_destroy = true
   }
   depends_on            = [azurerm_network_interface.A-nic]
