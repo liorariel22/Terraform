@@ -9,7 +9,6 @@ resource "azurerm_public_ip" "A-ip" {
 }
 
 resource "azurerm_network_interface" "A-nic" {
-  depends_on          = [azurerm_public_ip.A-ip]
   name                = "Azure-tf-project-nic"
   location            = var.region
   resource_group_name = var.resource_group_name
@@ -19,13 +18,13 @@ resource "azurerm_network_interface" "A-nic" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.A-ip.id
   }
+  depends_on          = [azurerm_public_ip.A-ip]
   tags = {
     environment = "test"
   }
 }
 
 resource "azurerm_linux_virtual_machine" "A-vm-1" {
-  depends_on            = [azurerm_network_interface.A-nic]
   name                  = "Azure-tf-project-vm-1"
   resource_group_name   = var.resource_group_name
   location              = var.region
@@ -47,6 +46,7 @@ resource "azurerm_linux_virtual_machine" "A-vm-1" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
+  depends_on            = [azurerm_network_interface.A-nic]
   tags = {
     environment = "test"
   }

@@ -32,8 +32,9 @@ resource "azurerm_network_security_group" "A-sg" {
   }
 }
 
-resource "azurerm_network_security_rule" "A-test-rule" {
-  name                        = "Azure-tf-project-test-rule"
+module "network_security_rule" {
+  source                      = "./modules/network_security_rule"
+  rule_name                   = "Azure-tf-project-test-rule-1"
   priority                    = 100
   direction                   = "Inbound"
   access                      = "Allow"
